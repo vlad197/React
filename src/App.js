@@ -22,7 +22,7 @@ function App() {
   const Logout = () => {
     console.log("Logout");
   }
-
+// de facut router cu react-router-dom
   return (
    
 <div className="App">
