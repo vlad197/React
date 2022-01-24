@@ -1,5 +1,7 @@
 import api from "./api";
 
+export const FETCh_ceva = 'fetch_ceva';
+
 export const ACTION_TYPES = {
     CREATE: 'CREATE',
     UPDATE:'UPDATE',
