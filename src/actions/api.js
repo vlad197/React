@@ -2,6 +2,21 @@ import axios from "axios";
 
 const baseUrl = "http://localhost:50861/api/"
 
+// payload: { username: vlad, passward: parola }
+
+/*function fetchUser(payload) {
+    return {
+        type: FETCH_USER,
+        payload: payload
+}
+
+function getUserFromBackend(payload) {
+    return (dispatch) => {
+        return axios.get()....
+}
+*/
+
+
 export default {
 
     dEmployees(url=baseUrl + 'DEmployees/'){
