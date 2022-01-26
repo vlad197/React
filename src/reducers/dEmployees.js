@@ -1,25 +1,30 @@
-import { ACTION_TYPES } from "../actions/dEmployees";
+import { DELETE_USER } from "../actions/api";
+
+export const GET_USERS = "GET_USERS";
 
 const initialState = {
-    list:[]
-}
-export const dEmployees = (state=initialState,action) => {
+    users: [],
+    user: {}
+    
+};
 
-switch(action.type) {
 
-case ACTION_TYPES.FETCH_ALL:
-    return {
-        ...state,
-        list:[...action.payload]
+const fetchUser = (state = initialState, action) => {
+    switch(action.type) {
+        case GET_USERS:
+            return {
+                ...state,
+                users: action.user
+            };
+            
+        case DELETE_USER:
+            return {
+                ...state
+            };
+            default:
+                return state;
     }
-    break;
-    default:
-        return state
-
-}
-
-
-}
+};
 
 /*
 
