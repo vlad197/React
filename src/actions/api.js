@@ -17,7 +17,7 @@ function fetchUser(payload) {
 }
 }
 
-function getUserFromBackend(payload) {
+export function getUserFromBackend(payload) {
     return (dispatch) => {
       return  axios.get(`${baseUrl}`).then((resp) => {
           console.log("resp", resp);
@@ -73,4 +73,4 @@ export default {
 }
 */
 
-export default getUserFromBackend;
+//export default getUserFromBackend;
