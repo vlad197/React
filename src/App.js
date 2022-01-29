@@ -12,11 +12,67 @@ import {useDispatch, useSelector} from "react-redux";
 import getUserFromBackend, { users } from './actions/api';
 import {createStore, combineReducers} from 'redux';
 import { Navigate } from 'react-router-dom';
+
+
+import Typography from "@material-ui/core/Typography";
+import TodoList from './components/TodoList';
+import TodoForm from './components/TodoForm';
+
+
+const LOCAL_STORAGE_KEY = "react-todo-list-todos";
 function App() {
 
   const [error, setError] = useState("");
 
 
+
+
+
+  const [todos, setTodos] = useState([]);
+
+  useEffect(() => {
+    // fires when app component mounts to the DOM
+    const storageTodos = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY));
+    if (storageTodos) {
+      setTodos(storageTodos);
+    }
+  }, []);
+
+  useEffect(() => {
+    // fires when todos array gets updated
+    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(todos));
+  }, [todos]);
+
+  function addTodo(todo) {
+    // adds new todo to beginning of todos array
+    setTodos([todo, ...todos]);
+  }
+
+  function toggleComplete(id) {
+    setTodos(
+      todos.map(todo => {
+        if (todo.id === id) {
+          return {
+            ...todo,
+            completed: !todo.completed
+          };
+        }
+        return todo;
+      })
+    );
+  }
+
+  function removeTodo(id) {
+    setTodos(todos.filter(todo => todo.id !== id));
+  }
+
+
+
+
+
+
+
+  
   
 // de facut router cu react-router-dom
   return (
@@ -37,8 +93,18 @@ function App() {
     
 
       <Route exact path='/register' element={<RegistrationForm/>} />
+      
     </Routes>
     </BrowserRouter>
+
+    <TodoForm addTodo={addTodo} />
+      <TodoList
+        todos={todos}
+        removeTodo={removeTodo}
+        toggleComplete={toggleComplete}
+      />
+    
+     
 </div>
 
   );

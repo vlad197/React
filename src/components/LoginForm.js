@@ -48,7 +48,7 @@ function LoginForm(props) {
 
     if (username !== "" && password !== "") {
       conditie = false;
-      navigate("/toDo");
+      navigate("/Todo");
       
     }
 
