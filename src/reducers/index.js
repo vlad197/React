@@ -1,7 +1,8 @@
-import {combineReducers} from "redux";
-import {dEmployees} from "./dEmployees";
+import { combineReducers } from "redux";
+import User from "./dEmployees";
 
+const reducers = combineReducers({
+    User,
+});
 
-export const reducers = combineReducers({
-    dEmployees
-})
+export default reducers;

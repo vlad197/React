@@ -1,31 +1,6 @@
-import { DELETE_USER } from "../actions/api";
+const User = (store, action) => {};
 
-export const GET_USERS = "GET_USERS";
-
-const initialState = {
-    users: [],
-    user: {}
-    
-};
-
-
-const fetchUser = (state = initialState, action) => {
-    switch(action.type) {
-        case GET_USERS:
-            return {
-                ...state,
-                users: action.user
-            };
-            
-        case DELETE_USER:
-            return {
-                ...state
-            };
-            default:
-                return state;
-    }
-};
-
+export default User;
 /*
 
 fetchUser (state, action) {
