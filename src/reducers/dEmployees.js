@@ -3,20 +3,42 @@ const User = (store, action) => {};
 export default User;
 /*
 
-fetchUser (state, action) {
+const initialState = {
+    actionType: [],
+    hasError: false,
+    isLoading: false,
+}
+
+function acctionTypeSucces (state, action) {
     return {
-        ...state, user: action.user
+        actionType: action.data,
+        hasError: false,
+        isLoading: false
+    }
+}
+
+function acctionTypeError (state, action) {
+    return {
+        ...state
+        hasError: true,
+        isLoading: false
+    }
+}
+
+function acctionTypeLoading (state, action) {
+    return {
+        ...state
+        isLoading: true
     }
 }
 
 const handlers = {
-    [FETCH_USER]: fetchUser,
-    [FETCH_USER1]: fetchUser1,
-    [FETCH_USER2]: fetchUser2,
-    [FETCH_USER3]: fetchUser3
+    [ACTION_TYPE_SUCCESS]: acctionTypeSucces,
+    [ACTION_TYPE_ERROR]: acctionTypeError,
+    [ACTION_TYPE_LOADING]: acctionTypeLoading,
 }
 
-export default const emplyeesData = (state, action) => {
+export default const actionType = (state = initialState, action) => {
     const handler = handlesrs[action.type];
     
     if (handler) return handler(state, action);
@@ -25,8 +47,16 @@ export default const emplyeesData = (state, action) => {
 
 // get functions
 
-export getList(state) {
-    return state.emplyeesData.list;
+export getActiontype(state) {
+    return state.aactionTypec.actionType;
+}
+
+export acionTypeError(state) {
+    return state.aactionTypec.hasError;
+}
+
+export actionTypeIsLoading(state) {
+    return state.aactionTypec.isLoading;
 }
 
 */
